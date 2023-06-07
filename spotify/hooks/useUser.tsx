@@ -1,7 +1,6 @@
-import { User } from "@supabase/auth-helpers-nextjs"
 import { Subscription, UserDetails } from "@/types"
-import { createContext, use, useEffect, useState } from "react";
-import { useSessionContext, useUser as useSupaUser } from "@supabase/auth-helpers-react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useSessionContext, useUser as useSupaUser, User } from "@supabase/auth-helpers-react";
 
 type UserContentType = {
     accessToken: string | null; 
@@ -62,17 +61,17 @@ export const MyUserContextProvider = (props: Props) => {
         accessToken,
         user,
         userDetails,
-        isLoading: isLoadingData || isLoadingUser,
+        isLoading: isLoadingUser ||  isLoadingData,
         subscription,
     };
 
-    return <MyUserContextProvider value={value} {...props} />
+    return <UserContext.Provider value={value} {...props} />;
 };
 
 export const useUser = () => {
-    const context = use(UserContext);
+    const context = useContext(UserContext);
     if (context === undefined) {
         throw new Error("useUser must be used within a UserProvider");
     }
     return context;
-}
+};
