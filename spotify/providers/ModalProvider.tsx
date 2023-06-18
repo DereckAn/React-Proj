@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AutModel from "../components/AutModel";
+import UploadModel from "@/components/UploadModel";
 
 const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -15,6 +16,7 @@ const ModalProvider = () => {
     return ( 
         <>
            <AutModel/>
+           <UploadModel/>
         </>
      );
 }

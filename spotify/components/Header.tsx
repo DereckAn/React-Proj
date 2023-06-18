@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     const { error } = await supaCliente.auth.signOut();
     router.refresh();
     if (error) {
-        toast.error(error.message, { duration: 5000 });
+        toast.error(error.message, { duration: 5000 }); //Este es un pequeno mensaje que aparece en la parte superir 
     } else {
         toast.success("Logged out!!", { duration: 5000 });
     };
