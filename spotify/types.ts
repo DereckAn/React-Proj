@@ -61,5 +61,5 @@ export interface Song {
     author: string;
     title: string;
     song_url: string;
-    image_url: string;
+    image_path: string;
 };
